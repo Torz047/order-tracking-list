@@ -1,0 +1,88 @@
+.screen {
+  min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,212,170,.07) 0%, transparent 65%);
+}
+.card {
+  background:var(--surface); border:1px solid var(--border2);
+  border-radius:var(--radius-xl); padding:40px; width:100%; max-width:420px;
+  animation:slideUp .3s cubic-bezier(.16,1,.3,1);
+}
+@keyframes slideUp { from{transform:translateY(24px);opacity:0} to{transform:translateY(0);opacity:1} }
+
+.logo { display:flex; align-items:center; gap:14px; margin-bottom:36px; }
+.logoMark {
+  width:44px; height:44px; border-radius:10px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Syne',sans-serif; font-weight:800; font-size:16px; color:#000;
+  box-shadow:0 0 24px rgba(0,212,170,.3); flex-shrink:0;
+}
+.logoText { font-family:'Syne',sans-serif; font-weight:800; font-size:20px; }
+.logoSub  { font-size:10px; color:var(--text3); letter-spacing:.1em; text-transform:uppercase; margin-top:2px; }
+
+.title    { font-family:'Syne',sans-serif; font-weight:700; font-size:24px; margin-bottom:6px; }
+.subtitle { font-size:11px; color:var(--text3); margin-bottom:28px; }
+
+.field   { display:flex; flex-direction:column; gap:6px; margin-bottom:16px; }
+.label   { font-size:10px; color:var(--text3); font-weight:600; letter-spacing:.1em; text-transform:uppercase; }
+.input   {
+  background:var(--surface2); border:1px solid var(--border); border-radius:var(--radius);
+  padding:11px 14px; font-size:13px; color:var(--text); outline:none;
+  transition:border-color .15s,box-shadow .15s; width:100%;
+}
+.input:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(0,212,170,.1); }
+.input::placeholder { color:var(--text3); }
+
+.btn {
+  width:100%; margin-top:8px; padding:13px; border-radius:var(--radius);
+  background:var(--accent); color:#000; border:none;
+  font-size:13px; font-weight:700; letter-spacing:.05em;
+  transition:background .15s,box-shadow .15s,transform .1s;
+  box-shadow:0 0 20px rgba(0,212,170,.2);
+}
+.btn:hover:not(:disabled) { background:#00f0c0; box-shadow:0 0 28px rgba(0,212,170,.35); }
+.btn:active { transform:scale(.99); }
+.btn:disabled { opacity:.6; cursor:not-allowed; }
+
+.error {
+  background:rgba(239,68,68,.1); border:1px solid rgba(239,68,68,.25);
+  border-radius:var(--radius); padding:10px 14px; font-size:11px; color:#fc8181;
+  margin-top:12px; animation:shake .3s ease;
+}
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+
+.demoSection { margin-top:22px; border-top:1px solid var(--border); padding-top:18px; }
+.demoLabel   { font-size:9px; color:var(--text3); letter-spacing:.1em; text-transform:uppercase; margin-bottom:10px; text-align:center; }
+.demoGrid    { display:grid; grid-template-columns:1fr 1fr; gap:7px; }
+
+.demoPill {
+  display:flex; align-items:center; gap:7px;
+  background:var(--surface2); border:1px solid var(--border2);
+  border-radius:8px; padding:8px 12px; cursor:pointer;
+  transition:border-color .15s,background .15s,transform .1s;
+  text-align:left; font-family:'JetBrains Mono',monospace;
+}
+.demoPill:hover  { background:var(--surface3); transform:translateY(-1px); }
+.demoPill:active { transform:translateY(0); }
+
+.demoDot  { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+.demoRole { font-size:10px; font-weight:700; letter-spacing:.05em; flex:1; }
+.demoUser { font-size:9px; color:var(--text3); }
+
+.demoAdmin   .demoDot { background:#f59e0b; box-shadow:0 0 6px #f59e0b; }
+.demoAdmin   .demoRole { color:#f59e0b; }
+.demoAdmin:hover { border-color:rgba(245,158,11,.35); background:rgba(245,158,11,.06); }
+
+.demoPlanner .demoDot { background:var(--accent); box-shadow:0 0 6px var(--accent); }
+.demoPlanner .demoRole { color:var(--accent); }
+.demoPlanner:hover { border-color:rgba(0,212,170,.35); background:rgba(0,212,170,.06); }
+
+.demoLogi .demoDot { background:#0099ff; box-shadow:0 0 6px #0099ff; }
+.demoLogi .demoRole { color:#0099ff; }
+.demoLogi:hover { border-color:rgba(0,153,255,.35); background:rgba(0,153,255,.06); }
+
+.demoInv .demoDot { background:#a855f7; box-shadow:0 0 6px #a855f7; }
+.demoInv .demoRole { color:#a855f7; }
+.demoInv:hover { border-color:rgba(168,85,247,.35); background:rgba(168,85,247,.06); }
+
+@media(max-width:480px) { .card { padding:28px 20px; } }

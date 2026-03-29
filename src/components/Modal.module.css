@@ -1,0 +1,126 @@
+.overlay {
+  position:fixed; inset:0; background:rgba(0,0,0,.75); z-index:200;
+  backdrop-filter:blur(6px); display:flex; align-items:center;
+  justify-content:center; padding:16px; animation:fadeIn .15s ease;
+}
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+.modal {
+  background:var(--surface); border:1px solid var(--border2);
+  border-radius:var(--radius-xl); width:880px; max-width:100%;
+  max-height:92vh; overflow-y:auto; padding:28px;
+  animation:slideUp .2s cubic-bezier(.16,1,.3,1);
+}
+.modalSm { width:680px; }
+@keyframes slideUp { from{transform:translateY(20px);opacity:0} to{transform:translateY(0);opacity:1} }
+
+.header  { display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; }
+.title   { font-family:'Syne',sans-serif; font-weight:700; font-size:18px; }
+.closeBtn {
+  background:none; border:none; color:var(--text3); font-size:18px;
+  padding:4px 8px; border-radius:4px; transition:color .15s; line-height:1;
+}
+.closeBtn:hover { color:var(--text); }
+
+.grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.group { display:flex; flex-direction:column; gap:5px; }
+.span2 { grid-column:span 2; }
+
+.sectionLabel {
+  grid-column:span 3; font-size:10px; font-weight:700;
+  letter-spacing:.1em; text-transform:uppercase;
+  padding-top:8px; border-top:1px solid var(--border); margin-top:4px;
+}
+.secAccent { color:var(--accent); }
+.secBlue   { color:var(--accent2); }
+.secPurple { color:var(--accent4); }
+
+.label {
+  font-size:10px; color:var(--text3); font-weight:600;
+  letter-spacing:.08em; text-transform:uppercase;
+  display:flex; align-items:center; gap:4px;
+}
+.req     { color:var(--accent); }
+.viewOnly { font-size:9px; color:var(--text3); font-weight:400; font-style:italic; text-transform:none; letter-spacing:0; }
+
+.input {
+  background:var(--surface2); border:1px solid var(--border);
+  border-radius:var(--radius); padding:9px 12px;
+  font-size:12px; color:var(--text); outline:none; width:100%;
+  transition:border-color .15s,box-shadow .15s;
+}
+.input:focus  { border-color:var(--accent); box-shadow:0 0 0 3px rgba(0,212,170,.08); }
+.input::placeholder { color:var(--text3); }
+.input:disabled { opacity:.3; cursor:not-allowed; background:var(--bg); }
+
+.footer {
+  display:flex; justify-content:flex-end; gap:10px;
+  margin-top:24px; padding-top:20px; border-top:1px solid var(--border);
+}
+
+.btn {
+  display:flex; align-items:center; gap:6px; padding:9px 18px;
+  border-radius:var(--radius); font-size:12px; font-weight:600;
+  border:1px solid transparent; transition:all .15s; letter-spacing:.03em;
+}
+.btnPrimary { background:var(--accent); color:#000; border-color:var(--accent); }
+.btnPrimary:hover:not(:disabled) { background:#00f0c0; }
+.btnPrimary:disabled { opacity:.6; cursor:not-allowed; }
+.btnGhost   { background:transparent; color:var(--text2); border-color:var(--border2); }
+.btnGhost:hover { background:var(--surface2); color:var(--text); }
+
+/* ── Accounts modal specific ── */
+.accountsList { display:flex; flex-direction:column; gap:8px; margin-bottom:20px; }
+.accountRow {
+  display:flex; align-items:center; gap:12px;
+  background:var(--surface2); border:1px solid var(--border);
+  border-radius:var(--radius); padding:12px 16px; transition:border-color .15s;
+}
+.accountRow:hover { border-color:var(--border2); }
+.accountAvatar {
+  width:36px; height:36px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:12px; font-weight:700; color:#000; flex-shrink:0;
+}
+.accountInfo { flex:1; min-width:0; }
+.accountName {
+  font-size:13px; font-weight:600; color:var(--text);
+  display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+}
+.accountPw  { font-size:11px; color:var(--text3); margin-top:3px; }
+.accountPwVal { color:var(--text2); }
+.accountActions { display:flex; gap:6px; flex-shrink:0; }
+.protected  { font-size:10px; color:var(--text3); padding:0 8px; }
+.subTitle   { font-family:'Syne',sans-serif; font-size:14px; font-weight:700; color:var(--text); margin-bottom:16px; }
+.divider    { border:none; border-top:1px solid var(--border); margin-bottom:20px; }
+.roleChip   {
+  font-size:9px; font-weight:700; letter-spacing:.06em;
+  padding:1px 5px; border-radius:3px; display:inline-block; text-transform:uppercase;
+}
+.roleAdmin     { background:rgba(245,158,11,.15); color:#f59e0b; }
+.rolePlanner   { background:rgba(0,212,170,.15);  color:#00d4aa; }
+.roleLogistics { background:rgba(0,153,255,.15);  color:#0099ff; }
+.roleInventory { background:rgba(168,85,247,.15); color:#a855f7; }
+.btnSmGhost {
+  padding:5px 10px; border-radius:5px; font-size:10px; background:transparent;
+  color:var(--text2); border:1px solid var(--border2); transition:all .15s;
+  font-family:'JetBrains Mono',monospace;
+}
+.btnSmGhost:hover { background:var(--surface3); color:var(--text); }
+.btnSmDanger {
+  padding:5px 10px; border-radius:5px; font-size:10px; background:transparent;
+  color:var(--red); border:1px solid rgba(239,68,68,.3); transition:all .15s;
+  font-family:'JetBrains Mono',monospace;
+}
+.btnSmDanger:hover { background:var(--red-dim); }
+
+@media(max-width:600px) {
+  .grid { grid-template-columns:1fr 1fr; }
+  .sectionLabel { grid-column:span 2; }
+  .span2 { grid-column:span 2; }
+  .modal { padding:20px 16px; }
+}
+@media(max-width:420px) {
+  .grid { grid-template-columns:1fr; }
+  .sectionLabel, .span2 { grid-column:span 1; }
+}
